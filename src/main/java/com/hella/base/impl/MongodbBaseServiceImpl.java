@@ -1,9 +1,14 @@
 package com.hella.base.impl;
 
 import com.hella.base.MongodbBaseService;
+import com.hella.entity.MongodbBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * @Author why10
@@ -21,4 +26,10 @@ public class MongodbBaseServiceImpl<T> implements MongodbBaseService<T> {
     mongoTemplate.insert(entity, collectionName);
     return entity;
   }
+
+  @Override
+  public List<Map> getData(String collectionName) {
+    return  mongoTemplate.find(new Query(), Map.class,collectionName);
+  }
+
 }

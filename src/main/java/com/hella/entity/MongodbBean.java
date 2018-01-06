@@ -8,11 +8,11 @@ import org.springframework.data.annotation.Id;
  * @Description:
  * @Date: 2018/1/6 14:04.
  */
-public class  MongodbBean {
+public class  MongodbBean<T> {
   @Id
   private String id;// 主键ID mongo会自动生成
 
-  private String data;
+  private T data;
 
   private long createTime;// 入库时间
 
@@ -24,11 +24,11 @@ public class  MongodbBean {
     this.id = id;
   }
 
-  public String getData() {
+  public T getData() {
     return data;
   }
 
-  public void setData(String data) {
+  public void setData(T data) {
     this.data = data;
   }
 
@@ -43,9 +43,9 @@ public class  MongodbBean {
   @Override
   public String toString() {
     return "MongodbBean{" +
-        "id='" + id + '\'' +
-        ", data='" + data + '\'' +
-        ", createTime=" + createTime +
-        '}';
+            "id='" + id + '\'' +
+            ", data=" + data +
+            ", createTime=" + createTime +
+            '}';
   }
 }

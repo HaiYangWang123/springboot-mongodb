@@ -1,5 +1,8 @@
 package com.hella.base;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * @Author why10
  * @Email:haiyang.wang01@mljr.com
@@ -8,4 +11,5 @@ package com.hella.base;
  */
 public interface MongodbBaseService<T> {
    T saveMongodb(T entity, String collectionName);
+   List<Map> getData(String collectionName);
 }

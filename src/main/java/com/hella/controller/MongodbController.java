@@ -1,15 +1,16 @@
 package com.hella.controller;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.hella.base.MongodbBaseService;
 import com.hella.entity.MongodbBean;
 import com.mongodb.util.JSON;
-import org.apache.tomcat.jni.Time;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * @Author why10
@@ -32,8 +33,14 @@ public class MongodbController {
   @RequestMapping(value = "/saveJson/{json}", method = RequestMethod.GET)
   public Object saveJson(@PathVariable("json") String json) {
     MongodbBean mongodbBean = new MongodbBean();
-    mongodbBean.setData(json);
+    mongodbBean.setData(JSON.parse(json));
     mongodbBean.setCreateTime(System.currentTimeMillis());
     return mongodbBaseService.saveMongodb(mongodbBean, "test_mongodb");
+  }
+
+
+  @RequestMapping(value = "/getData", method = RequestMethod.GET)
+  public List<Map> getData() {
+    return mongodbBaseService.getData( "test_mongodb");
   }
 }
