@@ -1,7 +1,6 @@
-package com.hella.base.impl;
+package com.haiyang.mongo.base.impl;
 
-import com.hella.base.MongodbBaseService;
-import com.hella.entity.MongodbBean;
+import com.haiyang.mongo.base.MongodbBaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
@@ -12,7 +11,7 @@ import java.util.Map;
 
 /**
  * @Author why10
- * @Email:haiyang.wang01@mljr.com
+ * @Email:hywang2017@qq.com
  * @Description:
  * @Date: 2018/1/6 13:55.
  */
